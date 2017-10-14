@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"lab1/architecture_go/models/morze"
+	"./models/morze"
 )
 
 func main() {

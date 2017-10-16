@@ -2,31 +2,51 @@ package src
 
 import (
 	"../ui"
+	"time"
+	"../../presenters"
 )
 
-var HandEditText *ui.Entry
-var DecodeBtn *ui.Button
-var HandOutputTextView *ui.Label
-var ChooseFile *ui.Button
-var FileOutputTextView *ui.Label
+var (
+	ChooseFileBtn      *ui.Button
+	DecodeBtn          *ui.Button
+	FileOutputTextView *ui.Label
+	HandOutputTextView *ui.Label
+	HandEditText       *ui.Entry
+	Window             *ui.Window
+	HandOutputText     = "Here will be the decoded text."
+	FileOutputText     = "Here will be the decoded text."
 
-func ShowWindow() {
+	mainBox *ui.Box
+)
+
+func Show() {
 	err := ui.Main(func() {
-		mainBox := ui.NewHorizontalBox()
+		mainBox = ui.NewHorizontalBox()
 		mainBox.SetPadded(true)
 		mainBox.Append(makeHandInputBlock(), true)
 		mainBox.Append(makeFromFileBlock(), true)
 
-		window := ui.NewWindow("Morse decoder", 700, 300, false)
-		window.SetChild(mainBox)
-		window.OnClosing(func(*ui.Window) bool {
+		Window = ui.NewWindow("Morse decoder", 700, 300, false)
+		Window.SetChild(mainBox)
+		Window.OnClosing(func(*ui.Window) bool {
 			ui.Quit()
 			return true
 		})
-		window.Show()
+		Window.Show()
+		go SetTextIntoOutputs()
 	})
 	if err != nil {
 		panic(err)
+	}
+}
+
+func SetTextIntoOutputs() {
+	for  {
+		ui.QueueMain(func() {
+			HandOutputTextView.SetText(HandOutputText)
+			FileOutputTextView.SetText(FileOutputText)
+		})
+		time.Sleep(time.Millisecond * 200)
 	}
 }
 
@@ -35,6 +55,9 @@ func makeHandInputBlock() *ui.Group {
 	HandEditText = ui.NewEntry()
 	HandOutputTextView = ui.NewLabel("Here will be the decoded text.")
 	DecodeBtn = ui.NewButton("Decode")
+	DecodeBtn.OnClicked(func(*ui.Button) {
+		HandOutputText = presenters.OnDecodeClick(HandEditText.Text())
+	})
 
 	leftBox := ui.NewVerticalBox()
 	leftBox.SetPadded(true)
@@ -47,18 +70,21 @@ func makeHandInputBlock() *ui.Group {
 	leftGroup := ui.NewGroup("Hand HandEditText")
 	leftGroup.SetMargined(true)
 	leftGroup.SetChild(leftBox)
-	return  leftGroup
+	return leftGroup
 }
 
 func makeFromFileBlock() *ui.Group {
-	ChooseFile = ui.NewButton("Choose file")
 	help := ui.NewLabel("Please, choose the .txt file with morse code")
 	FileOutputTextView = ui.NewLabel("Here will be the decoded text.")
+	ChooseFileBtn = ui.NewButton("Choose file")
+	ChooseFileBtn.OnClicked(func(*ui.Button) {
+		FileOutputText = presenters.OnChooseFileClick(ui.OpenFile(Window))
+	})
 
 	rightBox := ui.NewVerticalBox()
 	rightBox.SetPadded(true)
 	rightBox.Append(help, false)
-	rightBox.Append(ChooseFile, false)
+	rightBox.Append(ChooseFileBtn, false)
 	rightBox.Append(ui.NewHorizontalSeparator(), false)
 	rightBox.Append(FileOutputTextView, true)
 

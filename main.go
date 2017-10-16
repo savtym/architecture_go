@@ -8,7 +8,9 @@ import (
 
 func main() {
 	fmt.Println(morze.Interpreter())
-	src.ShowWindow()
+	src.Show()
+
+
 
 
 }

@@ -1,7 +1,7 @@
 package src
 
 import (
-	"../ui"
+	"github.com/andlabs/ui"
 	"time"
 	"../../presenters"
 )

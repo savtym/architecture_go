@@ -1,14 +1,15 @@
 package presenters
 
 import (
-//"../models/morze"
+	"../models/morze"
 )
 
-func OnDecodeClick(s string) string{
-	return s
+func OnDecodeClick(s string) string {
+	morze.SetUserInput(s)
+	return morze.Interpreter()
 }
 
-func OnChooseFileClick(s string) string{
-	println(s)
-	return "decoded from file"
+func OnChooseFileClick(s string) string {
+	morze.InputFileName = s
+	return morze.Interpreter()
 }

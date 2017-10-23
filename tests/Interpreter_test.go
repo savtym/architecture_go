@@ -11,18 +11,17 @@ type testInterpreterPair struct {
 }
 
 var InterpreterTests = []testInterpreterPair{
-	{"",""},
-	{" ",""},
-	{"011","w"},
-	{"0112","w"},
-	{"0113","w"},
-	{"0114","w"},
-	{"0115",""},
+	{"10002","b"},
+	{" ","Error s"},
+	{"011","p"},
+	{"0112","wError"},
+	{"10102","c"},
 }
 
 func TestInterpreter(t *testing.T) {
 	for _, pair := range InterpreterTests {
-		morze.InputFileName = "../cash/input.txt"
+		morze.SetDictFileName("../dictionary/eng.json")
+		morze.SetInputFileName("../cash/input.txt")
 		morze.SetUserInput(pair.input)
 		v := morze.Interpreter()
 		if v != pair.output {

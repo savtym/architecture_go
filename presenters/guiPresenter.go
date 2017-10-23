@@ -10,6 +10,6 @@ func OnDecodeClick(s string) string {
 }
 
 func OnChooseFileClick(s string) string {
-	morze.InputFileName = s
+	morze.SetInputFileName(s)
 	return morze.Interpreter()
 }

@@ -6,15 +6,10 @@ import (
 	"log"
 )
 
-type Symb_code struct {
-	Symbol_code string
-	Symbol      string
-}
-
-const dictFilename = "models/morze/eng.json"
+//const dictFilename = "dictionary/eng.json"
 
 func json_reader() []Symb_code {
-	rawDataIn, err := ioutil.ReadFile(dictFilename)
+	rawDataIn, err := ioutil.ReadFile(path.dictFilename)
 	if err != nil {
 		log.Fatal("Cannot load dictionary:", err)
 	}

@@ -7,23 +7,23 @@ import (
 )
 
 const defaultInputFilename = "cash/input.txt"
-
-var InputFileName = defaultInputFilename
+//
+//var InputFileName = defaultInputFilename
 
 func input_reader() string {
-	rawDataIn, err := ioutil.ReadFile(InputFileName)
+	rawDataIn, err := ioutil.ReadFile(path.inputFileName)
 	if err != nil {
 		log.Fatal("Cannot load input:", err)
 	}
-	InputFileName = defaultInputFilename
+	path.inputFileName = defaultInputFilename
 	return string(rawDataIn)
 }
 
 func SetUserInput(input string) {
-	if InputFileName == defaultInputFilename {
-		os.Remove(InputFileName)
+	if path.inputFileName == defaultInputFilename {
+		os.Remove(path.inputFileName)
 	}
-	f, err := os.OpenFile(InputFileName, os.O_CREATE|os.O_WRONLY, 0644)
+	f, err := os.OpenFile(path.inputFileName, os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		panic(err)
 	}

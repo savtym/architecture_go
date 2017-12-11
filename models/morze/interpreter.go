@@ -22,7 +22,8 @@ func Threader() string {
 			arr = append(arr, str[beginPos:i+1])
 			beginPos = i + 1
 
-			if (i >= len(str) - length) {
+			if i >= (len(str) - length) {
+				i = len(str) - 2
 				continue
 			}
 
@@ -32,8 +33,10 @@ func Threader() string {
 		}
 	}
 
-	// for item := range arr {
+	fmt.Println(len(arr))
 
+	// for str := range arr {
+	// 	// go text(str)
 	// }
 
 
@@ -83,6 +86,7 @@ func Interpreter() string {
 
 func text(str string) {
 	var sub_str, out_str string
+	fmt.Println(1)
 	for i := range str {
 		tmp := string(str[i])
 		if (tmp == "2") || (tmp == "3") || (tmp == "4") || (tmp == " ") {

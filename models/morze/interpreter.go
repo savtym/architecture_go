@@ -17,19 +17,24 @@ func Threader() string {
 	length := int(len(str) / threadsNumber)
 	beginPos := 0
 
-	for i := length; i < len(str) - 1; i++ {
+	for i := length; i < len(str); i++ {
 		if str[i] == '3' {
 			arr = append(arr, str[beginPos:i+1])
 			beginPos = i + 1
+
+			if (i >= len(str) - length) {
+				continue
+			}
+
 			i += length
 		} else if str[i] == '4' {
 			arr = append(arr, str[beginPos:])
 		}
 	}
 
-	for item := range arr {
+	// for item := range arr {
 
-	}
+	// }
 
 
 	return ""

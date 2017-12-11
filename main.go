@@ -3,10 +3,11 @@ package main
 import (
 	"./models/morze"
 	// "./views/src"
+	"fmt"
 )
 
 func main() {
 	morze.DefaultValues()
-	morze.Threader()
+	fmt.Println(morze.Threader())
 	// src.Show()
 }

@@ -1,13 +1,11 @@
 package morze
 
-var path = PathCode{}
-
 const threadsNumber = 10
 
+var path = PathCode{}
+var maps = [threadsNumber]string{}
+var sem = make(chan int, 1)
 
-type commonMemory struct {
-	maps map[int]string
-}
 
 type Symb_code struct {
 	Symbol_code string
@@ -17,6 +15,12 @@ type Symb_code struct {
 type PathCode struct {
 	dictFilename string
 	inputFileName string
+}
+
+func addCommonMemory(str string, index int) {
+	sem <- 1
+	maps[index] = str
+	<- sem
 }
 
 func SetDictFileName(dictFilename string) {

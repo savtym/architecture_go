@@ -4,12 +4,12 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
-	"fmt"
+	"sync"
 )
 
 const defaultInputFilename = "cash/input.txt"
-//
-//var InputFileName = defaultInputFilename
+var g = &sync.WaitGroup{}
+
 
 func Threader() string {
 	var arr []string
@@ -33,14 +33,20 @@ func Threader() string {
 		}
 	}
 
-	fmt.Println(len(arr))
 
-	// for str := range arr {
-	// 	// go text(str)
-	// }
+	g.Add(len(arr))
+	for i, str := range arr {
+		go text(str, i)
+	}
+	g.Wait()
 
+	var result string;
 
-	return ""
+	for _, str := range maps {
+		result += str
+	}
+
+	return result
 }
 
 func input_reader() string {
@@ -67,26 +73,16 @@ func SetUserInput(input string) {
 }
 
 func Interpreter() string {
-	var sub_str, out_str string
-	str := input_reader()
-	for i := range str {
-		tmp := string(str[i])
-		if (tmp == "2") || (tmp == "3") || (tmp == "4") || (tmp == " ") {
-			out_str = out_str + Decoder(sub_str)
-			if string(str[i]) == "3"  {
-				out_str += " "
-			}
-			sub_str = ""
-		} else {
-			sub_str += string(str[i])
-		}
-	}
-	return out_str
+	return interpreter(input_reader())
 }
 
-func text(str string) {
+func text(str string, index int) {
+	addCommonMemory(interpreter(str), index)
+	g.Done()
+} 
+
+func interpreter(str string) string {
 	var sub_str, out_str string
-	fmt.Println(1)
 	for i := range str {
 		tmp := string(str[i])
 		if (tmp == "2") || (tmp == "3") || (tmp == "4") || (tmp == " ") {
@@ -99,4 +95,5 @@ func text(str string) {
 			sub_str += string(str[i])
 		}
 	}
-} 
+	return out_str;
+}

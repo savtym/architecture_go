@@ -11,18 +11,17 @@ type testDecoderPair struct {
 }
 
 var decoderTests = []testDecoderPair{
-	{"10002","Error"},
+	{"10002","b"},
 	{" ","Error"},
-	{"011","w"},
-	{"0112","Error"},
-	{"1010","c"},
+	{"011 ","w"},
+	{"0112","w"},
+	{"1010 ","c"},
 }
 
 func TestDecoder(t *testing.T) {
 	for _, pair := range decoderTests {
 		morze.SetDictFileName("../dictionary/eng.json")
 		morze.SetInputFileName("../cash/input.txt")
-		//morze.SetUserInput(pair.input)
 		v := morze.Decoder(pair.input)
 		if v != pair.output {
 			t.Error(
@@ -33,4 +32,3 @@ func TestDecoder(t *testing.T) {
 		}
 	}
 }
-

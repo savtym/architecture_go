@@ -12,7 +12,6 @@ type testInterpreterPair struct {
 
 var InterpreterTests = []testInterpreterPair{
 	{"10002","b"},
-	{" ","Error s"},
 	{"011","p"},
 	{"0112","wError"},
 	{"10102","c"},
@@ -32,4 +31,13 @@ func TestInterpreter(t *testing.T) {
 			)
 		}
 	}
+}
+
+
+func BenchmarkTest(b *testing.B) {
+	morze.SetDictFileName("../dictionary/eng.json")
+	for i := 0; i < b.N; i++ {
+		morze.SetInputFileName("../cash/hello.txt")
+		morze.Interpreter()
+    }
 }

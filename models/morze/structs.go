@@ -1,6 +1,6 @@
 package morze
 
-const threadsNumber = 4
+const threadsNumber = 10
 
 var dict map[string]string;
 var path = PathCode{}

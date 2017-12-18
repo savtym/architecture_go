@@ -8,25 +8,22 @@ import (
 
 //const dictFilename = "dictionary/eng.json"
 
-func json_reader() []Symb_code {
+func Json_reader() {
 	rawDataIn, err := ioutil.ReadFile(path.dictFilename)
 	if err != nil {
 		log.Fatal("Cannot load dictionary:", err)
 	}
-	var pingJSON []Symb_code
-	err = json.Unmarshal([]byte(rawDataIn), &pingJSON)
+
+	err = json.Unmarshal([]byte(rawDataIn), &dict)
 	if err != nil {
 		log.Fatal("Invalid dictionary format:", err)
 	}
-	return pingJSON
 }
 
 func Decoder(buffer string) string {
-	dictionary := json_reader()
-	for i := range dictionary {
-		if buffer == string(dictionary[i].Symbol_code) {
-			return dictionary[i].Symbol
-		}
+	result, ok := dict[buffer]
+	if !ok {
+		return "Error"
 	}
-	return "Error"
+	return result
 }

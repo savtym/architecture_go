@@ -1,186 +1,48 @@
-[
-	{
-  "Symbol_code": "01",
-  "Symbol": "a"
-	},
-	{
-  "Symbol_code": "1000",
-  "Symbol": "b"
-	},
-	{
-  "Symbol_code": "1010",
-  "Symbol": "c"
-	},
-	{
-  "Symbol_code": "100",
-  "Symbol": "d"
-	},
-	{
-  "Symbol_code": "0",
-  "Symbol": "e"
-	},
-	{
-  "Symbol_code": "0010",
-  "Symbol": "f"
-	},
-	{
-  "Symbol_code": "110",
-  "Symbol": "g"
-	},
-	{
-  "Symbol_code": "0000",
-  "Symbol": "h"
-	},
-	{
-  "Symbol_code": "00",
-  "Symbol": "i"
-	},
-	{
-  "Symbol_code": "0111",
-  "Symbol": "j"
-	},
-	{
-  "Symbol_code": "101",
-  "Symbol": "k"
-	},
-	{
-  "Symbol_code": "0100",
-  "Symbol": "l"
-	},
-	{
-  "Symbol_code": "11",
-  "Symbol": "m"
-	},
-	{
-  "Symbol_code": "10",
-  "Symbol": "n"
-	},
-	{
-  "Symbol_code": "111",
-  "Symbol": "o"
-	},
-	{
-  "Symbol_code": "0110",
-  "Symbol": "p"
-	},
-	{
-  "Symbol_code": "1101",
-  "Symbol": "q"
-	},
-	{
-  "Symbol_code": "010",
-  "Symbol": "r"
-	},
-	{
-  "Symbol_code": "000",
-  "Symbol": "s"
-	},
-	{
-  "Symbol_code": "1",
-  "Symbol": "t"
-	},
-	{
-  "Symbol_code": "001",
-  "Symbol": "u"
-	},
-	{
-  "Symbol_code": "0001",
-  "Symbol": "v"
-	},
-	{
-  "Symbol_code": "011",
-  "Symbol": "w"
-	},
-	{
-  "Symbol_code": "1001",
-  "Symbol": "x"
-	},
-	{
-  "Symbol_code": "1011",
-  "Symbol": "y"
-	},
-	{
-  "Symbol_code": "1100",
-  "Symbol": "z"
-	},
-	{
-  "Symbol_code": "01111",
-  "Symbol": "1"
-	},
-	{
-  "Symbol_code": "00111",
-  "Symbol": "2"
-	},
-	{
-  "Symbol_code": "00011",
-  "Symbol": "3"
-	},
-	{
-  "Symbol_code": "00001",
-  "Symbol": "4"
-	},
-	{
-  "Symbol_code": "00000",
-  "Symbol": "5"
-	},
-	{
-  "Symbol_code": "10000",
-  "Symbol": "6"
-	},
-	{
-  "Symbol_code": "11000",
-  "Symbol": "7"
-	},
-	{
-  "Symbol_code": "11100",
-  "Symbol": "8"
-	},
-	{
-  "Symbol_code": "11110",
-  "Symbol": "9"
-	},
-	{
-  "Symbol_code": "11111",
-  "Symbol": "0"
-	},
-	{
-  "Symbol_code": "00000",
-  "Symbol": "."
-	},
-	{
-  "Symbol_code": "010101",
-  "Symbol": ","
-	},
-	{
-  "Symbol_code": "101010",
-  "Symbol": ";"
-	},
-	{
-  "Symbol_code": "111000",
-  "Symbol": ":"
-	},
-	{
-  "Symbol_code": "001100",
-  "Symbol": "?"
-	},
-	{
-  "Symbol_code": "110011",
-  "Symbol": "!"
-	},
-	{
-  "Symbol_code": "100001",
-  "Symbol": "-"
-	},
-	{
-  "Symbol_code": "010010",
-  "Symbol": "«"
-	},
-	{
-  "Symbol_code": "101101",
-  "Symbol": "("
-	},
-	{
-  "Symbol_code": "10010",
-  "Symbol": "/"
-	}
-]
+{
+    "01": "a",
+    "1000": "b",
+    "1010": "c",
+    "100": "d",
+    "0": "e",
+    "0010": "f",
+    "110": "g",
+    "0000": "h",
+    "00": "i",
+    "0111": "j",
+    "101": "k",
+    "0100": "l",
+    "11": "m",
+    "10": "n",
+    "111": "o",
+    "0110": "p",
+    "1101": "q",
+    "010": "r",
+    "000": "s",
+    "1": "t",
+    "001": "u",
+    "0001": "v",
+    "011": "w",
+    "1001": "x",
+    "1011": "y",
+    "1100": "z",
+    "01111": "1",
+    "00111": "2",
+    "00011": "3",
+    "00001": "4",
+    "00000": "5",
+    "10000": "6",
+    "11000": "7",
+    "11100": "8",
+    "11110": "9",
+    "11111": "0",
+    "00000": ".",
+    "010101": ",",
+    "101010": ";",
+    "111000": ":",
+    "001100": "?",
+    "110011": "!",
+    "100001": "-",
+    "010010": "«",
+    "101101": "(",
+    "10010": "/"
+}

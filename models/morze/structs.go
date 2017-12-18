@@ -1,16 +1,12 @@
 package morze
 
-const threadsNumber = 10
+const threadsNumber = 4
 
+var dict map[string]string;
 var path = PathCode{}
 var maps = [threadsNumber]string{}
 var sem = make(chan int, 1)
 
-
-type Symb_code struct {
-	Symbol_code string
-	Symbol      string
-}
 
 type PathCode struct {
 	dictFilename string
@@ -35,4 +31,5 @@ func SetInputFileName(inputFileName string) {
 func DefaultValues() {
 	path.dictFilename = "dictionary/eng.json"
 	path.inputFileName = "cash/hello.txt"
+	Json_reader()
 }
